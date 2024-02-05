@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-	"os"
-	"time"
 
 	"github.com/getlantern/systray"
 	"github.com/getlantern/systray/example/icon"
@@ -12,8 +10,6 @@ import (
 
 func main() {
 	onExit := func() {
-		now := time.Now()
-		os.WriteFile(fmt.Sprintf(`on_exit_%d.txt`, now.UnixNano()), []byte(now.String()), 0644)
 	}
 
 	systray.Run(onReady, onExit)
